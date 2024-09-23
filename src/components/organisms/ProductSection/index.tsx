@@ -58,7 +58,7 @@ const ProductSection = ({
         [&::-webkit-scrollbar-thumb]:rounded-[12px]
         [&::-webkit-scrollbar-thumb]:bg-gray-300
       ">
-        {products?.map((item, key) => (
+        {products?.slice(0, 5)?.map((item, key) => (
           <ProductCard
             key={'product-section-item-' + key}
             name={item?.name}

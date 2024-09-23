@@ -2,29 +2,6 @@ import Image from "next/image";
 import { Button } from "@/components/atoms";
 import { FaChevronRight } from "react-icons/fa";
 
-const itemsFake = [
-  {
-    image: '/assets/images/example-brand-1.jpg',
-    title: 'Bambang',
-  },
-  {
-    image: '/assets/images/example-brand-2.jpg',
-    title: 'Technoplast',
-  },
-  {
-    image: '/assets/images/example-brand-3.jpg',
-    title: 'Smart Mom',
-  },
-  {
-    image: '/assets/images/example-brand-4.jpg',
-    title: 'Homecook',
-  },
-  {
-    image: '/assets/images/example-brand-5.jpg',
-    title: 'Berlinger Haus',
-  },
-];
-
 const BrandSection = ({
   items
 }: TBrandSectionProps) => {

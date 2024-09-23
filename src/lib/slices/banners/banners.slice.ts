@@ -4,12 +4,20 @@ import { getPromoBanner } from "./banners.api";
 export const bannerSlice = createSlice({
   name: 'banners',
   initialState: {
-    data: null
-  },
+    data: [],
+    isLoading: false,
+  } as TBannerState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(getPromoBanner.pending, (state, action) => {
+      state.isLoading = true;
+    }),
     builder.addCase(getPromoBanner.fulfilled, (state, action) => {
-      state.data = action.payload
+      state.isLoading = false;
+      state.data = action.payload?.data
+    }),
+    builder.addCase(getPromoBanner.rejected, (state, action) => {
+      state.isLoading = false;
     })
   }
 });

@@ -41,10 +41,17 @@ const categoryNavbarItems = [
 
 export default function Home() {
   const dispatch = useAppDispatch();
-  const homePageContent: any = useAppSelector(state => state.home.data);
-  const bannerPromo: any = useAppSelector(state => state.banner.data);
-  const { trendingProductCategory, productBrand, products }: any = useAppSelector(state => state.product);
-  const article: any = useAppSelector(state => state.article);
+  const { 
+    banner: { memberNonReseller }, 
+    product: { productByNumberOfSales, trendingProduct } 
+  } = useAppSelector(state => state.home.data);
+  const bannerPromo = useAppSelector(state => state.banner.data);
+  const { 
+    trendingProductCategory, 
+    productBrand, 
+    products 
+  } = useAppSelector(state => state.product);
+  const article = useAppSelector(state => state.article.data);
 
   useEffect(() => {
     dispatch(getHomePageContent());
@@ -61,7 +68,7 @@ export default function Home() {
         items={categoryNavbarItems}
       />
       <Slider>
-        {homePageContent?.banner?.memberNonReseller?.map((item: any, key: any) => (
+        {memberNonReseller?.map((item: any, key: any) => (
           <SwiperSlide key={"slider-" + key}>
             <Image
               src={item.image}
@@ -73,13 +80,13 @@ export default function Home() {
         ))}
       </Slider>
       <PromoSection 
-        items={bannerPromo?.data}
+        items={bannerPromo}
       />
       <CategorySection 
-        categories={trendingProductCategory?.data}
+        categories={trendingProductCategory}
       />
       <ArticleSection 
-        items={article?.data}
+        items={article}
       />
       <div>
         <BrandSection 
@@ -99,13 +106,13 @@ export default function Home() {
           title="Produk Terlaris"
           titleColor={'text-white'}
           bgColor={'bg-[linear-gradient(221deg,#2fddd9,#15b8b2)]'}
-          products={homePageContent?.product?.productByNumberOfSales}
+          products={productByNumberOfSales}
         />
         <ProductSection 
           title="Produk Terpopuler"
           titleColor={'text-black'}
           bgColor={'bg-white'}
-          products={homePageContent?.product?.trendingProduct}
+          products={trendingProduct}
         />
         <ProductSection 
           title="Produk Terbaru"

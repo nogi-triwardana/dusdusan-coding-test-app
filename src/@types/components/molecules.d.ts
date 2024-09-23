@@ -12,7 +12,9 @@ type TNavbarProps = {
 }
 
 type TProductCardProps = {
-  imgSrc: string;
-  title: string;
-  price: string;
+  imgSrc?: string | any;
+  imageList?: any;
+  name: string;
+  standardRetailPrice: number;
+  uom: string;
 };

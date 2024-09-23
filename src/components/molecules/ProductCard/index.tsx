@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { formattedCurrency } from "@/helpers";
 
 const ProductCard = ({
   imgSrc,
-  title,
-  price,
+  name,
+  standardRetailPrice,
+  uom
 }: TProductCardProps) => {
   return (
-    <div className="flex flex-col flex-shrink-0 w-[150px] h-[270px] cursor-pointer rounded-[6px] shadow-md text-xs bg-white relative">
+    <div className="flex flex-col flex-shrink-0 w-[150px] h-[270px] cursor-pointer rounded-[6px] shadow-md text-xs bg-white relative shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
       <Image
         src={imgSrc}
         width={'0'}
@@ -17,9 +19,11 @@ const ProductCard = ({
       />
       <div className="p-[10px]">
         <div className="font-bold line-clamp-2 max-h-[32px] h-full">
-          {title}
+          {name}
         </div>
-        <div className="text-[#ffad00] font-bold">{price}</div>
+        <div className="text-[#ffad00] font-bold">
+          {formattedCurrency(standardRetailPrice)}/{uom}
+        </div>
       </div>
     </div>
   );

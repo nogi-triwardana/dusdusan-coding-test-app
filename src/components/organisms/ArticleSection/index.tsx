@@ -2,8 +2,9 @@ import { Button } from "@/components/atoms";
 import Image from "next/image";
 import { AiFillLike } from "react-icons/ai";
 import { FaChevronRight } from "react-icons/fa";
+import { format } from "date-fns";
 
-const items = [
+const itemsFake = [
   {
     image: '/assets/images/example-article-2.jpg',
     title: 'Makin Sehat Berolahraga Beli Alatnya di Dusdusan Banyak Bonusan!!',
@@ -31,7 +32,9 @@ const items = [
   },
 ];
 
-const ArticleSection = () => {
+const ArticleSection = ({
+  items
+}: TArticleProps) => {
   return (
     <div className="flex flex-col w-full gap-3 p-[15px]">
       <div className="flex justify-between">
@@ -49,13 +52,13 @@ const ArticleSection = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-3 divide-y">
-        {items.map((item, key) => (
+        {items?.map((item, key) => (
           <div 
             key={'article-list-' + key}
             className="flex gap-3 pt-[10px]"
           >
             <Image
-              src={item.image}
+              src={item.imagePath}
               width={100}
               height={100}
               className="rounded-[7px]"
@@ -67,11 +70,11 @@ const ArticleSection = () => {
                   Info Promo
                 </div>
                 <div className="font-medium">
-                  {item.title}
+                  {item?.name}
                 </div>
               </div>
               <div className="text-[#ffad00] text-sm font-medium">
-                {item.date}
+                {format(item.createAt, 'dd MMM yyyy')}
               </div>
             </div>
           </div>

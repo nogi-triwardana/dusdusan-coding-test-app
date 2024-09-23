@@ -34,6 +34,7 @@ const ProductSection = ({
   title,
   bgColor,
   titleColor,
+  products,
 }: TProductSectionProps) => {
   return (
     <div className={`${bgColor} w-full p-[15px] space-y-3`}>
@@ -49,10 +50,13 @@ const ProductSection = ({
         </div>
       </div>
       <div className="flex flex-row w-full max-w-[480px] gap-[10px] overflow-x-scroll py-[10px]">
-        {items.map((item, key) => (
+        {products?.map((item, key) => (
           <ProductCard
             key={'product-section-item-' + key}
-            {...item}
+            name={item?.name}
+            standardRetailPrice={item?.standardRetailPrice}
+            imgSrc={item?.imageList?.[0]?.imagePath}
+            uom={item?.uom}
           />
         ))}
       </div>

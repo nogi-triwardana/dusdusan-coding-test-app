@@ -1,7 +1,7 @@
 "use client"
 
 import { Homebar, Slider } from "@/components/molecules";
-import { ArticleSection, BrandSection, CategorySection, ProductSection, PromoSection, Footer } from "@/components/organisms";
+import { ArticleSection, BrandSection, CategorySection, ProductSection, PromoSection, Footer, BannerSection } from "@/components/organisms";
 import { Layout } from "@/components/templates";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { getArticles } from "@/lib/slices/articles";
@@ -10,6 +10,7 @@ import { getHomePageContent } from "@/lib/slices/home";
 import { getListProduct, getProductBrand, getTrendingProductCategory } from "@/lib/slices/products";
 import Image from "next/image";
 import { useEffect } from "react";
+import { SwiperSlide } from "swiper/react";
 
 const categoryNavbarItems = [
   {
@@ -59,9 +60,18 @@ export default function Home() {
       <Homebar
         items={categoryNavbarItems}
       />
-      <Slider 
-        items={homePageContent?.banner?.memberNonReseller}
-      />
+      <Slider>
+        {homePageContent?.banner?.memberNonReseller?.map((item: any, key: any) => (
+          <SwiperSlide key={"slider-" + key}>
+            <Image
+              src={item.image}
+              width={480}
+              height={480}
+              alt={''}
+            />
+          </SwiperSlide>
+        ))}
+      </Slider>
       <PromoSection 
         items={bannerPromo?.data}
       />
@@ -103,6 +113,7 @@ export default function Home() {
           bgColor={'bg-white'}
           products={products}
         />
+        <BannerSection />
         <Footer />
       </div>
     </Layout>

@@ -6,3 +6,4 @@ export { default as BrandSection } from './BrandSection';
 export { default as ProductSection } from './ProductSection';
 export { default as Footer } from './Footer';
 export { default as Navbar } from './Navbar';
+export { default as BannerSection } from './BannerSection';

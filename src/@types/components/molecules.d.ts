@@ -14,5 +14,6 @@ type TProductCardProps = {
 };
 
 type TSliderProps = {
-  items: any;
+  className?: string;
+  children: React.ReactNode;
 }

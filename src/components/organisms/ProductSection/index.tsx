@@ -49,7 +49,15 @@ const ProductSection = ({
           </Button>
         </div>
       </div>
-      <div className="flex flex-row w-full max-w-[480px] gap-[10px] overflow-x-scroll py-[10px]">
+      <div className="
+        flex flex-row w-full max-w-[480px] gap-[10px] overflow-x-scroll py-[10px] 
+        [&::-webkit-scrollbar]:h-2 
+        [&::-webkit-scrollbar]:rounded-[12px]
+        [&::-webkit-scrollbar-track]:hover:bg-[rgba(0,0,0,0.1)]
+        [&::-webkit-scrollbar-track]:bg-transparent
+        [&::-webkit-scrollbar-thumb]:rounded-[12px]
+        [&::-webkit-scrollbar-thumb]:bg-gray-300
+      ">
         {products?.map((item, key) => (
           <ProductCard
             key={'product-section-item-' + key}

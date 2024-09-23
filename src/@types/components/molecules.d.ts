@@ -1,9 +1,3 @@
-type TButtonProps = {
-  className: string;
-  children: React.ReactNode;
-  endIcon?: any;
-};
-
 type TNavbarProps = {
   items: {
     label: string;
@@ -18,3 +12,7 @@ type TProductCardProps = {
   standardRetailPrice: number;
   uom: string;
 };
+
+type TSliderProps = {
+  items: any;
+}

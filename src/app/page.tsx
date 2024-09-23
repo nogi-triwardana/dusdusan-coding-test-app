@@ -4,13 +4,12 @@ import { Homebar, Slider } from "@/components/molecules";
 import { ArticleSection, BrandSection, CategorySection, ProductSection, PromoSection, Footer } from "@/components/organisms";
 import { Layout } from "@/components/templates";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { getArticles } from "@/lib/slice/articles";
-import { getPromoBanner } from "@/lib/slice/banners";
-import { getHomePageContent } from "@/lib/slice/home";
-import { getListProduct, getProductBrand, getTrendingProductCategory } from "@/lib/slice/products";
+import { getArticles } from "@/lib/slices/articles";
+import { getPromoBanner } from "@/lib/slices/banners";
+import { getHomePageContent } from "@/lib/slices/home";
+import { getListProduct, getProductBrand, getTrendingProductCategory } from "@/lib/slices/products";
 import Image from "next/image";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 const categoryNavbarItems = [
   {

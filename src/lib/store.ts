@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { homeSlice } from './slice/home/home.slice'
-import { bannerSlice } from './slice/banners'
-import { productSlice } from './slice/products'
-import { articleSlice } from './slice/articles'
+import { homeSlice } from './slices/home'
+import { bannerSlice } from './slices/banners'
+import { productSlice } from './slices/products'
+import { articleSlice } from './slices/articles'
 
 export const makeStore = () => {
   return configureStore({

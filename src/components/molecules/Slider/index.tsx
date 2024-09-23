@@ -4,7 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, A11y } from 'swiper/modules';
 import Image from 'next/image';
 
-const Slider = ({ items }: any) => {
+const Slider = ({ 
+  items 
+}: TSliderProps) => {
   return (
     <Swiper 
       autoplay
@@ -22,14 +24,6 @@ const Slider = ({ items }: any) => {
           />
         </SwiperSlide>
       ))}
-      <SwiperSlide>
-        <Image
-          src={"/assets/images/example-product-2.jpg"}
-          width={480}
-          height={480}
-          alt={''}
-        />
-      </SwiperSlide>
     </Swiper>
   );
 };
